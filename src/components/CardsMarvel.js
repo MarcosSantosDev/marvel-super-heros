@@ -10,11 +10,14 @@ class CardsMarvel extends Component {
   handleRemove(){
     this.props.removePerson(this.props.person.id);
   }
+
   render() {
     const { person } = this.props;
     return (
         <div className="cardMarvel" >
-          <button type="submit" className="buttonRemove" onClick={this.handleRemove} >X</button>
+          <div id="buttonRemove">
+            <button type="submit" className="buttonRemove" onClick={this.handleRemove} >X</button>
+          </div>
           <div>
             <div>
               <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />

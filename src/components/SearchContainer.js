@@ -16,7 +16,7 @@ class SearchContainer extends Component  {
     }
 
     componentWillMount(){
-           API.get('characters')
+      API.get('characters')
         .then((response) => {
             this.setState({
               dataMarvel: response.data.data.results,
@@ -41,18 +41,15 @@ class SearchContainer extends Component  {
     filterName(event){
       const { originDataMarvel } = this.state;
       const dataMarvel = [...originDataMarvel];
-      const namePerson = event.target.value;
+      const inputValue = event.target.value;
 
-      const dataFiltredByText = dataMarvel.filter(element => element.name.includes(namePerson));
+      const dataFiltredByText = dataMarvel.filter(element => element.name.includes(inputValue));
 
-      const validat = () => namePerson ? dataFiltredByText : dataMarvel
-
-      console.log("Original :", dataMarvel);
-      console.log("COPIA :", originDataMarvel);
+      const validat = () => inputValue ? dataFiltredByText : dataMarvel;
 
       this.setState({
         dataMarvel: validat(),
-      })
+      });
 
     }
 
