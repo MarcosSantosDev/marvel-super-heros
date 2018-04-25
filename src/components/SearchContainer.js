@@ -8,41 +8,76 @@ class SearchContainer extends Component  {
         super();
         this.state = {
             searchPerson: '',
-            dataMarvel: []
+            dataMarvel: [],
+            originDataMarvel: []
         }
         this.removePerson = this.removePerson.bind(this);
+        this.filterName = this.filterName.bind(this);
     }
 
-    removePerson(userid){
-        console.log("Fui Clicado!!!", userid)
-    }
-
-    componentDidMount(){
+    componentWillMount(){
            API.get('characters')
         .then((response) => {
-                this.setState({
-                    dataMarvel: response.data.data.results,
-                })
+            this.setState({
+              dataMarvel: response.data.data.results,
+              originDataMarvel: response.data.data.results
+            })
         })
         .catch((error) => {
           console.log(error)
         });
     }
 
+    removePerson(cardId){
+      const { originDataMarvel } = this.state;
+      const dataFiltred = originDataMarvel.filter(element => element.id !== cardId);
+
+      this.setState({
+        dataMarvel: dataFiltred,
+        originDataMarvel: dataFiltred,
+      })
+    }
+
+    filterName(event){
+      const { originDataMarvel } = this.state;
+      const dataMarvel = [...originDataMarvel];
+      const namePerson = event.target.value;
+
+      const dataFiltredByText = dataMarvel.filter(element => element.name.includes(namePerson));
+
+      const validat = () => namePerson ? dataFiltredByText : dataMarvel
+
+      console.log("Original :", dataMarvel);
+      console.log("COPIA :", originDataMarvel);
+
+      this.setState({
+        dataMarvel: validat(),
+      })
+
+    }
+
     render(){
         const { dataMarvel } = this.state;
-        console.log("DATA", dataMarvel)
+
         return(
-            <div>
-              {
-                dataMarvel.map(person => {
-                   return <CardsMarvel
-                   key={person.id}
-                   person={person}
-                   removePerson={this.removePerson}
-                    />
-                })
-              }
+            <div className="mainDiv">
+              <div className="titleMarvel">
+                <h2>Tera Marvel</h2>
+              </div>
+              <div>
+                <input type="text" className="inputOfTheSearch" onChange={this.filterName} placeholder="Digite um dos nomes abaixo.. " />
+              </div>
+              <div className="wrapper">
+                {
+                  dataMarvel.map(person => {
+                    return <CardsMarvel
+                    key={person.id}
+                    person={person}
+                    removePerson={this.removePerson}
+                      />
+                  })
+                }
+              </div>
             </div>
         );
     }

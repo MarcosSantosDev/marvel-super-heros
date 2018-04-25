@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 class CardsMarvel extends Component {
   constructor(props, context) {
@@ -11,19 +12,18 @@ class CardsMarvel extends Component {
   }
   render() {
     const { person } = this.props;
-    console.log(person)
     return (
-      <div className="cardMarvel" >
-      <button type="submit" className="buttonRemove" onClick={this.handleRemove} >X</button>
-      <div>
-        <div>
-          <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
+        <div className="cardMarvel" >
+          <button type="submit" className="buttonRemove" onClick={this.handleRemove} >X</button>
+          <div>
+            <div>
+              <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
+            </div>
+            <div className="personName">
+              <h5>{person.name}</h5>
+            </div>
+          </div>
         </div>
-        <div className="personName">
-          <h5>{person.name}</h5>
-        </div>
-      </div>
-    </div>
     );
   }
 }
