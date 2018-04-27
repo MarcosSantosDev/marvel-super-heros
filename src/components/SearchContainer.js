@@ -45,10 +45,10 @@ class SearchContainer extends Component  {
 
       const dataFiltredByText = dataMarvel.filter(element => element.name.includes(inputValue));
 
-      const validat = () => inputValue ? dataFiltredByText : dataMarvel;
+      const validatInput = () => inputValue ? dataFiltredByText : dataMarvel;
 
       this.setState({
-        dataMarvel: validat(),
+        dataMarvel: validatInput(),
       });
 
     }

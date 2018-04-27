@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 class CardsMarvel extends Component {
@@ -20,7 +21,9 @@ class CardsMarvel extends Component {
           </div>
           <div>
             <div>
-              <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
+              <Link to={`/details/${person.id}`}>
+                <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
+              </Link>
             </div>
             <div className="personName">
               <h5>{person.name}</h5>

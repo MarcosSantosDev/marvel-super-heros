@@ -49,3 +49,25 @@
   width: 25%;
   margin: 1%;
 }
+
+#mainCard {
+  border: 1px solid #000;
+  margin: 10px;
+}
+
+.titleDetails {
+  text-align: center;
+}
+
+.buttonPageInitial {
+  padding: 4px;
+  margin: 4px;
+  background-color: aliceblue;
+  border: aliceblue;
+  color: #000;
+  cursor: pointer;
+}
+
+.dataDetails {
+  padding: 0 2rem;
+}
