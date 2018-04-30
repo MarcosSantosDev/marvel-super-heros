@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import MakeList from './MakeList';
+import CardDetails from './CardDetails';
 
 class MakeSearchDetail extends Component {
   render() {
@@ -14,12 +14,14 @@ class MakeSearchDetail extends Component {
         </div>
           <div className="dataDetails">
             {
-              data.map((element, i) =>
+              data.map((element, i) => {
+                console.log(element)
+                return(
                 <div key={i}>
-                    <MakeList title="Historias em quadrinhos" list={element.comics} />
-                    <MakeList title="Filmes" list={element.series} />
-                    <MakeList title="Historias" list={element.stories} />
-                </div>
+                    <CardDetails title="Historias em quadrinhos" list={element.comics} />
+                    <CardDetails title="Filmes" list={element.series} />
+                    <CardDetails title="Historias" list={element.stories} />
+                </div>)}
               )
             }
           </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../utils/axios';
 import CardsMarvel from './CardsMarvel';
+import { Input } from 'antd';
 import '../App.css';
 
 class SearchContainer extends Component  {
@@ -42,9 +43,8 @@ class SearchContainer extends Component  {
       const { originDataMarvel } = this.state;
       const dataMarvel = [...originDataMarvel];
       const inputValue = event.target.value;
-
       const dataFiltredByText = dataMarvel.filter(element => element.name.includes(inputValue));
-
+      // console.log(event)
       const validatInput = () => inputValue ? dataFiltredByText : dataMarvel;
 
       this.setState({
@@ -55,6 +55,7 @@ class SearchContainer extends Component  {
 
     render(){
         const { dataMarvel } = this.state;
+        const Search = Input.Search;
 
         return(
             <div className="mainDiv">
@@ -62,7 +63,18 @@ class SearchContainer extends Component  {
                 <h2>Tera Marvel</h2>
               </div>
               <div>
-                <input type="text" className="inputOfTheSearch" onChange={this.filterName} placeholder="Digite um dos nomes abaixo.. " />
+         <div>
+
+    <Search
+      className="inputSearch"
+      placeholder="Personagens Marvel.."
+      onChange={this.filterName}
+      style={{ width: 300, margin: 10 }}
+      size="large"
+    />
+
+  </div>
+
               </div>
               <div className="wrapper">
                 {

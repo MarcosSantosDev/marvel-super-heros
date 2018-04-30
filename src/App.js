@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchMarvel from './components/SearchContainer';
 import DetailsCardContainer from './components/DetailsCardContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import 'antd/dist/antd.css';
 
 class App extends Component {
 render() {

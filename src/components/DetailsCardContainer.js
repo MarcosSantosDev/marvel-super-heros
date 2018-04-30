@@ -12,7 +12,6 @@ export default class DetailsCard extends Component {
 
   componentWillMount(){
     const id = this.props.match.params.id;
-    console.log(id)
     API.get(`characters/${id}`)
     .then((response) => {
       this.setState({

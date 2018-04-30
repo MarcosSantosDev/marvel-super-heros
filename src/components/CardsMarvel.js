@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import { Card, Button, Icon } from 'antd';
+const { Meta } = Card;
 
 class CardsMarvel extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor() {
+    super();
     this.handleRemove = this.handleRemove.bind(this);
-  }
+    }
 
   handleRemove(){
     this.props.removePerson(this.props.person.id);
@@ -15,22 +16,15 @@ class CardsMarvel extends Component {
   render() {
     const { person } = this.props;
     return (
-        <div className="cardMarvel" >
-          <div id="buttonRemove">
-            <button type="submit" className="buttonRemove" onClick={this.handleRemove} >X</button>
-          </div>
-          <div>
-            <div>
-              <Link to={`/details/${person.id}`}>
-                <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
-              </Link>
-            </div>
-            <div className="personName">
-              <h5>{person.name}</h5>
-            </div>
-          </div>
-        </div>
-    );
+      <Card hoverable style={{ width: 200, margin: 10 }} >
+        <Button  type="danger" size="small" id="buttonRemove" onClick={this.handleRemove}><Icon type="close" /></Button>
+        <Link to={`/details/${person.id}`} >
+          <img src={person.thumbnail.path + "." + person.thumbnail.extension}
+          alt={person.name} className="imageMarvel" />
+        </Link>
+        <Meta style={{ textAlign: "center", margin: 10}} title={person.name} />
+      </Card>
+    )
   }
 }
 
