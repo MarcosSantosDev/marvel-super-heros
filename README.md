@@ -1,2 +1,3 @@
-# tera_marvel
-Aplicação de pesquisa de herois e vilões marvel.
+# Marvel SUPER HEROS
+<p>Application consuming<b><a href="https://developer.marvel.com/">API marvel</a></b>.</p>
+
