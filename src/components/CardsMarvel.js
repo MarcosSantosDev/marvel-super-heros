@@ -8,28 +8,31 @@ class CardsMarvel extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  handleRemove(){
+  handleRemove() {
     this.props.removePerson(this.props.person.id);
   }
 
   render() {
     const { person } = this.props;
     return (
-        <div className="cardMarvel" >
-          <div id="buttonRemove">
-            <button type="submit" className="buttonRemove" onClick={this.handleRemove} >X</button>
-          </div>
-          <div>
-            <div>
+      <div className="row">
+        <div className="col s8">
+          <div className="card cardMarvel">
+            <div className="card-image">
+              <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
               <Link to={`/details/${person.id}`}>
-                <img src={person.thumbnail.path + "." + person.thumbnail.extension} alt={person.name} className="imageMarvel" />
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i style={{ border: "2px", borderColor: "black" }} class="material-icons">info</i></a>
               </Link>
             </div>
-            <div className="personName">
-              <h5>{person.name}</h5>
+            <div className="card-content">
+              <span style={{ fontSize: "14px" }} className="grey-text text-darken-4">{person.name}</span>
+            </div>
+            <div className="center">
+              <div className="buttonRemove" onClick={this.handleRemove} ><i class="material-icons">delete</i></div>
             </div>
           </div>
         </div>
+      </div>
     );
   }
 }

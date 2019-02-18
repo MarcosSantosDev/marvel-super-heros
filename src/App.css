@@ -2,40 +2,52 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
-
-.titleMarvel {
-  text-align: center;
-  text-decoration: underline;
+.logo {
+  display: flex;
+  justify-content: center;
 }
+ .logo_img {
+  width: 150px;
+  margin: 5px;
+ }
 
 .cardMarvel {
-  width: 200px;
-  height: 100%;
-  border: 1px solid #000;
-  margin: 10px;
+  position: block;
+  width: 220px;
+  height: 250px;
+  margin-left: 5px;
+  margin-right: 5px;
+
 }
 
-#buttonRemove {
-  margin: 4px;
-  text-align: right;
+.card-title {
+  font-size: 15px;
+}
+.center {
+  display: flex;
+  justify-content: center;
 }
 
 .buttonRemove {
-  border: 1px solid rgb(201, 199, 199);
-  background-color:  rgb(255, 255, 255);
-  color: rgb(216, 56, 56);
-  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  width: 85%;
+  border-radius: 10px;
+  color: #4d4d4d;
+  background-color: #bcbcbc;
+  z-index: 4;
 }
 
 .imageMarvel{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 250px;
-  max-height: 150px;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
 }
 
 .personName {
